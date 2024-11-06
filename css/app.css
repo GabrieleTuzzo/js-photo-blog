@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.header__content {
+    width: 100%;
+    position: fixed;
+    padding: 32px;
+    background-image: url('../img/wall.png');
+    background-size: cover;
+}
+
+.header__text {
+    font-size: 48px;
+    font-style: italic;
+    text-align: center;
+}
+
+.main__content {
+    padding-top: 150px;
+    background-image: url(../img/cork.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row > * {
+    padding: 12px;
+}
+
+.col-lg-4 {
+    width: calc(100% / 12 * 4);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 2px 2px 8px #000000;
+}
+
+.card__thumbtack {
+    height: 38px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    position: absolute;
+}
+
+.card__image {
+    padding: 16px;
+    padding-bottom: 8px;
+}
+
+.card__body {
+    padding: 0 16px;
+    padding-bottom: 8px;
+}
