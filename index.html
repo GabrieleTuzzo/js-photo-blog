@@ -13,37 +13,23 @@
         <main class="main__content">
             <!-- Main content -->
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <img
-                                class="card__thumbtack"
-                                src="./img/pin.svg"
-                                alt=""
-                            />
-                            <div class="card__image">
-                                <img src="https://picsum.photos/600" alt="" />
-                            </div>
-                            <div class="card__body">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Nisi itaque error fuga
-                                    quam minima exercitationem deserunt quas,
-                                    nesciunt sit numquam, cumque provident omnis
-                                    possimus, aperiam laudantium enim adipisci
-                                    eos a!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">test</div>
-                    <div class="col-lg-4">test</div>
-                    <div class="col-lg-4">test</div>
-                    <div class="col-lg-4">test</div>
-                    <div class="col-lg-4">test</div>
-                </div>
+                <div id="gallery_container" class="row"></div>
             </div>
         </main>
+        <!-- TEMPLATE -->
+        <template id="photo_template">
+            <div class="col-lg-4">
+                <div class="card">
+                    <img class="card__thumbtack" src="./img/pin.svg" alt="" />
+                    <div class="card__image">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="card__body">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </template>
         <!-- SCRIPT -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="js/app.js"></script>

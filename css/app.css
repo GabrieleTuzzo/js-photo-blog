@@ -10,6 +10,7 @@ img {
 }
 
 .header__content {
+    z-index: 99;
     width: 100%;
     position: fixed;
     padding: 32px;
@@ -27,11 +28,10 @@ img {
     padding-top: 150px;
     background-image: url(../img/cork.png);
     background-size: cover;
-    height: 100vh;
 }
 
 .container {
-    max-width: 1240px;
+    max-width: 960px;
     margin: 0 auto;
 }
 
@@ -44,7 +44,7 @@ img {
     padding: 12px;
 }
 
-.col-lg-4 {
+.col-4 {
     width: calc(100% / 12 * 4);
 }
 
@@ -73,4 +73,22 @@ img {
 .card__body {
     padding: 0 16px;
     padding-bottom: 8px;
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+    .col-4 {
+        width: calc(100% / 12 * 6);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    .col-4 {
+        width: 100%;
+    }
 }
