@@ -28,7 +28,7 @@ img {
     padding-top: 150px;
     background-image: url(../img/cork.png);
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
@@ -78,9 +78,6 @@ img {
 }
 
 @media screen and (max-width: 992px) {
-    .main__content {
-        height: auto;
-    }
     .container {
         max-width: 720px;
     }
