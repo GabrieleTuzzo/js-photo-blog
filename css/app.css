@@ -28,6 +28,7 @@ img {
     padding-top: 150px;
     background-image: url(../img/cork.png);
     background-size: cover;
+    height: 100vh;
 }
 
 .container {
@@ -53,6 +54,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
     background-color: white;
     box-shadow: 2px 2px 8px #000000;
 }
@@ -76,6 +78,9 @@ img {
 }
 
 @media screen and (max-width: 992px) {
+    .main__content {
+        height: auto;
+    }
     .container {
         max-width: 720px;
     }
