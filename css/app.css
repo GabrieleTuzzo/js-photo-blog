@@ -1,4 +1,5 @@
 * {
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -9,8 +10,20 @@ img {
     width: 100%;
 }
 
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+}
+
 .header__content {
-    z-index: 99;
+    z-index: 1;
     width: 100%;
     position: fixed;
     padding: 32px;
@@ -59,6 +72,10 @@ img {
     box-shadow: 2px 2px 8px #000000;
 }
 
+.card:hover {
+    cursor: pointer;
+}
+
 .card__thumbtack {
     height: 38px;
     top: 0;
@@ -75,6 +92,50 @@ img {
 .card__body {
     padding: 0 16px;
     padding-bottom: 8px;
+}
+
+.overlay {
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #00000080;
+}
+
+.overlay__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlay__content img {
+    z-index: 12;
+    width: 100%;
+}
+
+.btn {
+    background-color: white;
+    width: 100px;
+    line-height: 24px;
+    border-radius: 999px;
+}
+
+.btn:hover {
+    background-color: rgb(221, 221, 221);
+    cursor: pointer;
+}
+
+/* UTILITY */
+.of-hidden {
+    overflow: hidden;
 }
 
 @media screen and (max-width: 992px) {
