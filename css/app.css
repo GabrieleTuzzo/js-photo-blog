@@ -40,7 +40,7 @@ button {
 .main__content {
     overflow: hidden;
     padding-top: 150px;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
     background-image: url(../img/cork.png);
     background-size: cover;
     min-height: 100vh;
@@ -89,7 +89,8 @@ button {
 }
 
 .card__thumbtack {
-    height: 38px;
+    pointer-events: none;
+    width: fit-content;
     top: 0;
     left: 50%;
     transform: translate(-50%, -25%);
@@ -117,32 +118,34 @@ button {
     background-color: #00000080;
 }
 
-.overlay__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
+.overlay img {
+    z-index: 12;
+    width: initial;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.overlay__content img {
-    z-index: 12;
-    width: 100%;
-}
-
 .btn {
-    background-color: white;
-    width: 100px;
-    line-height: 24px;
-    border-radius: 999px;
+    z-index: 14;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 42px;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(20px);
+    border-radius: 50%;
+    aspect-ratio: 1/ 1;
+    width: 50px;
+    line-height: 25px;
+    border: 1px solid rgba(61, 61, 61, 0.308);
 }
 
 .btn:hover {
-    background-color: rgb(221, 221, 221);
     cursor: pointer;
+    color: rgba(0, 0, 0, 1);
 }
 
 /* UTILITY */

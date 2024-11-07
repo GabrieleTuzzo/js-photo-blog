@@ -35,7 +35,7 @@ function drawOverlay(event) {
     const myOverlay = overlay_template.content.cloneNode(true)
     const blackScreen = myOverlay.querySelector('.overlay')
     const overlayButton = myOverlay.querySelector('.btn')
-    const overlayImg = myOverlay.querySelector('.overlay__content img')
+    const overlayImg = myOverlay.querySelector('.overlay img')
 
     overlayImg.src = currentImg.src
 
