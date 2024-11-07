@@ -23,7 +23,7 @@ button {
 }
 
 .header__content {
-    z-index: 1;
+    z-index: 5;
     width: 100%;
     position: fixed;
     padding: 32px;
@@ -38,7 +38,9 @@ button {
 }
 
 .main__content {
+    overflow: hidden;
     padding-top: 150px;
+    padding-bottom: 50px;
     background-image: url(../img/cork.png);
     background-size: cover;
     min-height: 100vh;
@@ -70,10 +72,20 @@ button {
     height: 100%;
     background-color: white;
     box-shadow: 2px 2px 8px #000000;
+
+    transition-property: transform, box-shadow;
+    transition-duration: 120ms;
 }
 
 .card:hover {
+    z-index: 2;
     cursor: pointer;
+    transform: scale(1.2) rotate(-8deg);
+    box-shadow: 4px 4px 50px #000000;
+}
+
+.card:hover .card__thumbtack {
+    display: none;
 }
 
 .card__thumbtack {
@@ -144,6 +156,18 @@ button {
     }
     .col-4 {
         width: calc(100% / 12 * 6);
+    }
+    .card {
+        transition-property: initial;
+        transition-duration: initial;
+    }
+    .card:hover {
+        z-index: 2;
+        cursor: pointer;
+        transform: initial;
+    }
+    .card:hover .card__thumbtack {
+        display: initial;
     }
 }
 
