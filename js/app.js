@@ -6,8 +6,6 @@ const root = document.getElementById('gallery_container')
 const photo_template = document.getElementById('photo_template')
 const overlay_template = document.getElementById('overlay_template')
 
-// TODO use a single eventListener instead of one for each photoCard
-
 function getPhotos(url) {
     axios.get(url).then((response) => {
         const myData = response.data
