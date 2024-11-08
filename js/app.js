@@ -34,13 +34,14 @@ function getPhotos(url) {
 function drawOverlay(event) {
     const currentImg = event.currentTarget.querySelector('.card__image img')
 
-    const myOverlay = overlay_template.content.cloneNode(true)
-    const blackScreen = myOverlay.querySelector('.overlay')
-    const overlayImg = myOverlay.querySelector('.overlay img')
+    const overlayContentFragment = overlay_template.content.cloneNode(true)
+    const overlayElement = overlayContentFragment.firstElementChild
+    const overlayImgElement =
+        overlayContentFragment.querySelector('.overlay img')
 
-    overlayImg.src = currentImg.src
+    overlayImgElement.src = currentImg.src
 
-    blackScreen.addEventListener('click', (event) => {
+    overlayElement.addEventListener('click', (event) => {
         event.stopPropagation()
         const target = event.target
         if (!target.matches('img')) {
@@ -50,7 +51,7 @@ function drawOverlay(event) {
     })
 
     body.classList.toggle('of-hidden')
-    body.prepend(myOverlay)
+    body.prepend(overlayContentFragment)
 }
 
 function removeParentBySelector(target, selector) {
