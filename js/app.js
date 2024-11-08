@@ -1,7 +1,7 @@
 console.log('hello world')
 
 const URL = 'https://jsonplaceholder.typicode.com/photos?_limit=6'
-const body = document.querySelector('body')
+const body = document.body
 const root = document.getElementById('gallery_container')
 const photo_template = document.getElementById('photo_template')
 const overlay_template = document.getElementById('overlay_template')
