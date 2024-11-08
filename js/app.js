@@ -42,9 +42,7 @@ function drawOverlay(event) {
     overlayImg.src = currentImg.src
 
     blackScreen.addEventListener('click', (event) => {
-        if (event.target.classList.contains('overlay')) {
-            removeOverlay()
-        }
+        if (event.target.classList.contains('overlay')) removeOverlay()
     })
     overlayButton.addEventListener('click', (event) => {
         event.stopPropagation()
