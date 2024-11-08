@@ -20,7 +20,9 @@ function getPhotos(url) {
             photoImg.src = el.url
             photoText.textContent = el.title
 
-            photoCard.addEventListener('click', drawOverlay)
+            photoCard.addEventListener('click', (event) => {
+                drawOverlay(event)
+            })
 
             docFrag.appendChild(newPhoto)
         })
@@ -40,9 +42,14 @@ function drawOverlay(event) {
     overlayImg.src = currentImg.src
 
     blackScreen.addEventListener('click', (event) => {
-        if (event.target.classList.contains('overlay')) removeOverlay()
+        if (event.target.classList.contains('overlay')) {
+            removeOverlay()
+        }
     })
-    overlayButton.addEventListener('click', removeOverlay)
+    overlayButton.addEventListener('click', (event) => {
+        event.stopPropagation()
+        removeOverlay()
+    })
     body.classList.toggle('of-hidden')
 
     body.prepend(myOverlay)
