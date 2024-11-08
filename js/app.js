@@ -6,6 +6,8 @@ const root = document.getElementById('gallery_container')
 const photo_template = document.getElementById('photo_template')
 const overlay_template = document.getElementById('overlay_template')
 
+// TODO use a single eventListener instead of one for each photoCard
+
 function getPhotos(url) {
     axios.get(url).then((response) => {
         const myData = response.data
@@ -15,14 +17,9 @@ function getPhotos(url) {
             const newPhoto = photo_template.content.cloneNode(true)
             const photoImg = newPhoto.querySelector('.card__image img')
             const photoText = newPhoto.querySelector('.card__body p')
-            const photoCard = newPhoto.querySelector('.card')
 
             photoImg.src = el.url
             photoText.textContent = el.title
-
-            photoCard.addEventListener('click', (event) => {
-                drawOverlay(event)
-            })
 
             docFrag.appendChild(newPhoto)
         })
@@ -31,21 +28,20 @@ function getPhotos(url) {
     })
 }
 
-function drawOverlay(event) {
-    const currentImg = event.currentTarget.querySelector('.card__image img')
-
+function drawOverlay(currentImgElement) {
     const overlayContentFragment = overlay_template.content.cloneNode(true)
     const overlayElement = overlayContentFragment.firstElementChild
     const overlayImgElement =
         overlayContentFragment.querySelector('.overlay img')
 
-    overlayImgElement.src = currentImg.src
+    overlayImgElement.src = currentImgElement.src
 
     overlayElement.addEventListener('click', (event) => {
         event.stopPropagation()
         const target = event.target
         if (!target.matches('img')) {
-            removeParentBySelector(target, '.overlay')
+            const overlay = target.closest('.overlay')
+            overlay.remove()
             body.classList.toggle('of-hidden')
         }
     })
@@ -54,9 +50,12 @@ function drawOverlay(event) {
     body.prepend(overlayContentFragment)
 }
 
-function removeParentBySelector(target, selector) {
-    const parent = target.closest(selector)
-    parent.remove()
-}
-
 getPhotos(URL)
+
+root.addEventListener('click', (event) => {
+    const target = event.target
+    if (target.closest('.card') !== null) {
+        const currentImg = event.currentTarget.querySelector('.card__image img')
+        drawOverlay(currentImg)
+    }
+})
