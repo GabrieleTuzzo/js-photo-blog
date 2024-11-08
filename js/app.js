@@ -36,28 +36,26 @@ function drawOverlay(event) {
 
     const myOverlay = overlay_template.content.cloneNode(true)
     const blackScreen = myOverlay.querySelector('.overlay')
-    const overlayButton = myOverlay.querySelector('.btn')
     const overlayImg = myOverlay.querySelector('.overlay img')
 
     overlayImg.src = currentImg.src
 
     blackScreen.addEventListener('click', (event) => {
-        if (event.target.classList.contains('overlay')) removeOverlay()
-    })
-    overlayButton.addEventListener('click', (event) => {
         event.stopPropagation()
-        removeOverlay()
+        const target = event.target
+        if (!target.matches('img')) {
+            removeParentBySelector(target, '.overlay')
+            body.classList.toggle('of-hidden')
+        }
     })
-    body.classList.toggle('of-hidden')
 
+    body.classList.toggle('of-hidden')
     body.prepend(myOverlay)
 }
 
-function removeOverlay() {
-    const myOverlay = body.querySelector('.overlay')
-    body.classList.toggle('of-hidden')
-
-    myOverlay.remove()
+function removeParentBySelector(target, selector) {
+    const parent = target.closest(selector)
+    parent.remove()
 }
 
 getPhotos(URL)
