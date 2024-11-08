@@ -55,7 +55,7 @@ function drawOverlay(event) {
     body.prepend(myOverlay)
 }
 
-function removeOverlay(event) {
+function removeOverlay() {
     const myOverlay = body.querySelector('.overlay')
     body.classList.toggle('of-hidden')
 
