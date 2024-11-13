@@ -7,23 +7,31 @@ const photo_template = document.getElementById('photo_template')
 const overlay_template = document.getElementById('overlay_template')
 
 function getPhotos(url) {
-    axios.get(url).then((response) => {
-        const myData = response.data
-        const docFrag = document.createDocumentFragment()
-        console.log(myData)
-        myData.forEach((el) => {
-            const newPhoto = photo_template.content.cloneNode(true)
-            const photoImg = newPhoto.querySelector('.card__image img')
-            const photoText = newPhoto.querySelector('.card__body p')
+    axios
+        .get(url)
+        .then(
+            (response) => {
+                const myData = response.data
+                const docFrag = document.createDocumentFragment()
+                console.log(myData)
+                myData.forEach((el) => {
+                    const newPhoto = photo_template.content.cloneNode(true)
+                    const photoImg = newPhoto.querySelector('.card__image img')
+                    const photoText = newPhoto.querySelector('.card__body p')
 
-            photoImg.src = el.url
-            photoText.textContent = el.title
+                    photoImg.src = el.url
+                    photoText.textContent = el.title
 
-            docFrag.appendChild(newPhoto)
+                    docFrag.appendChild(newPhoto)
+                })
+
+                root.appendChild(docFrag)
+            }
+            // (err) => {} Altro modo di ottenere l'errore
+        )
+        .catch((error) => {
+            console.log(error)
         })
-
-        root.appendChild(docFrag)
-    })
 }
 
 function drawOverlay(currentImgElement) {
@@ -56,3 +64,14 @@ root.addEventListener('click', (event) => {
         drawOverlay(currentImg)
     }
 })
+
+// function myMap(array, callback) {
+//     const returnArray = []
+//     for (let i = 0; i < array.length; i++) {
+//         returnArray.push(callback(array[i], i))
+//     }
+
+//     return returnArray
+// }
+
+// console.log(myMap([1, 6, 3, -4, 54], (num, index) => num * index))
