@@ -29,8 +29,7 @@ function getPhotos(url) {
 function drawOverlay(currentImgElement) {
     const overlayContentFragment = overlay_template.content.cloneNode(true)
     const overlayElement = overlayContentFragment.firstElementChild
-    const overlayImgElement =
-        overlayContentFragment.querySelector('.overlay img')
+    const overlayImgElement = overlayElement.querySelector('.overlay img')
 
     overlayImgElement.src = currentImgElement.src
 
